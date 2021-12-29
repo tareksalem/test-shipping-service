@@ -1,0 +1,55 @@
+{
+  "name": "shipping-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "dev": "nodemon",
+    "build": "tsc -p .",
+    "test": "NODE_ENV=test jest",
+    "migration:initial": "npx mikro-orm migration:create --initial",
+    "migration:create": "npx mikro-orm migration:create",
+    "migration:up": "npx mikro-orm migration:up",
+    "migration:down": "npx mikro-orm migration:down"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@mikro-orm/sqlite": "^4.5.10",
+    "@types/body-parser": "^1.19.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^14.14.6",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@mikro-orm/cli": "^4.5.10",
+    "@mikro-orm/core": "^4.5.10",
+    "@mikro-orm/migrations": "^4.5.10",
+    "@mikro-orm/postgresql": "^4.5.10",
+    "@mikro-orm/reflection": "^4.5.10",
+    "apollo-server-core": "^3.5.0",
+    "apollo-server-express": "^2.23.0",
+    "body-parser": "^1.19.0",
+    "class-validator": "^0.13.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-graphql": "^0.12.0",
+    "grand-connectors": "^1.1.6",
+    "graphql": "^15.5.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "uuid": "^8.3.2"
+  },
+  "mikro-orm": {
+    "useTsNode": false,
+    "configPaths": [
+      "dist/config/postgres-mikro-orm.config.js",
+      "src/config/postgres-mikro-orm.config.ts"
+    ]
+  }
+}
